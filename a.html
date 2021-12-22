@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp Conv</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        
+        .main {
+            width: 100;
+            height: 100vh;
+            background-image: url('weather-min.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        span {
+            color: beige;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="input-group flex-nowrap">
+
+                <input type="text" class="form-control" placeholder="Enter celcius" aria-label="Username" aria-describedby="addon-wrapping" id="b">
+                <button type="button" class="btn btn-primary m-lg-2" onclick="dov()">Click here</button>
+
+            </div>
+            <div><span id="a"></span></div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="input-group flex-nowrap">
+
+                <input type="text" class="form-control" placeholder="Enter fahrenheit" aria-label="Username" aria-describedby="addon-wrapping" id="far">
+                <button type="button" class="btn btn-primary m-lg-2" onclick="dof()">Click here</button>
+
+            </div>
+            <div><span id="far2"></span></div>
+        </div>
+    </div>
+    <script>
+        let aa = document.getElementById('a')
+        let bb = document.getElementById('far2')
+
+        document.addEventListener("click", dov)
+        document.addEventListener("click", dof)
+
+        function dov() {
+            let valu = document.getElementById('b').value;
+            let f = valu * (9 / 5) + 32;
+            aa.innerHTML = f.toPrecision(4)
+        }
+
+        function dof() {
+            let val = document.getElementById('far').value;
+
+            let c = (val - 32) * (5 / 9);
+            bb.innerHTML = Math.round(c);
+        }
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>
